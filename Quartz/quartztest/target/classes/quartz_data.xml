@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job-scheduling-data xmlns="http://www.quartz-scheduler.org/xml/JobSchedulingData"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://www.quartz-scheduler.org/xml/JobSchedulingData http://www.quartz-scheduler.org/xml/job_scheduling_data_1_8.xsd"
+                     version="1.8">
+    <pre-processing-commands>
+        <delete-jobs-in-group>*</delete-jobs-in-group>
+        <delete-triggers-in-group>*</delete-triggers-in-group>
+    </pre-processing-commands>
+
+    <processing-directives>
+        <overwrite-existing-data>true</overwrite-existing-data>
+        <ignore-duplicates>false</ignore-duplicates>
+    </processing-directives>
+
+
+    <!--
+    name String 任务的名称，必须
+    group String 任务所在组，默认为DEFAULT
+    jobClass Class 任务的实现类，必须
+    description String 描述
+    jobDataMap JobDataMap用来给作业提供数据支持的数据结构
+    volatility Boolean 重启应用之后是否删除任务的相关信息，默认false
+    durability Boolean 任务完成之后是否依然保留到数据库，默认false
+    shouldRecover Boolean 应用重启之后时候忽略过期任务，默认false
+    jobListeners Set 监听器
+    -->
+    <schedule>
+       <!-- <job>
+            <name>testJob2</name>
+            <job-class>com.meiya.quartz.example10.SimpleJob</job-class>
+        </job>-->
+
+        <job>
+            <name>testJob1</name>
+            <group>group1</group>
+            <job-class>com.meiya.quartz.example10.SimpleJob</job-class>
+            <job-data-map>
+                <entry>
+                    <key>someKey</key>
+                    <value>someValue</value>
+                </entry>
+                <entry>
+                    <key>someOtherKey</key>
+                    <value>someOtherValue</value>
+                </entry>
+            </job-data-map>
+        </job>
+
+        <trigger>
+            <simple>
+                <name>simpleTrigger</name>
+                <job-name>testJob1</job-name>
+                <job-group>group1</job-group>
+                <repeat-count>4</repeat-count>
+                <repeat-interval>1000</repeat-interval>
+            </simple>
+        </trigger>
+    </schedule>
+
+</job-scheduling-data>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
